@@ -34,6 +34,7 @@ def generate_report_prompt(question, context, report_format="apa", total_words=1
             relevant results that answer the query accurately. Place these citations at the end \
             of the sentence or paragraph that reference them.\n"\
             f"Please do your best, this is very important to my career. " \
+            "Answer in Italian. No English. Entire report needs to be in Italian." \
             f"Assume that the current date is {datetime.now().strftime('%B %d, %Y')}"
 
 
