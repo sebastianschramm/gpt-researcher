@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>GPT Researcher</title>
-    <meta name="description" content="A research assistant powered by GPT-4">
+    <title>Ricercatore IA</title>
+    <meta name="description" content="A research assistant powered by Mistral">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./static/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,29 +40,17 @@
 
 <body>
 
-<section class="landing">
     <div class="max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl font-extrabold mx-auto lg:text-7xl">
-            Say Goodbye to <br>
-            <span
-                    style="background-image:linear-gradient(to right, #9867F0, #ED4E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hours
-                    of Research</span>
-        </h1>
-        <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-            Say Hello to GPT Researcher, your AI mate for rapid insights and comprehensive research. GPT Researcher
-            takes care of everything from accurate source gathering to organization of research results - all in one
-            platform designed to make your research process a breeze.
-        </p>
-        <a href="#form" class="btn btn-primary">Get Started</a>
+        <br><br>
     </div>
-</section>
 
 <main class="container" id="form">
+    <div class="agent-item"><h1 class="text-4xl font-extrabold mx-auto lg:text-7xl">Ricercatore di intelligenza artificiale</h1></div>
     <div class="agent-item"><img src="/static/defaultAgentAvatar.JPG" class="avatar"
                                                 alt="Auto Agent"></div>
     <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
         <div class="form-group">
-            <label for="task" class="agent-question">What would you like me to research next?</label>
+            <label for="task" class="agent-question">Cosa vorresti che ricercassi dopo?</label>
             <input type="text" id="task" name="task" class="form-control" required>
             <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
         </div>
@@ -74,36 +62,30 @@
             <button type="button" id="btnShowAuto" class="btn btn-secondary mt-3 btn-show">Auto Agent</button>
         </div>
         <div class="form-group">
-            <label for="report_type" class="agent-question">What type of report would you like me to generate?</label>
-            <select name="report_type" class="form-control" required>
+            <select hidden name="report_type" class="form-control" required>
                 <option value="research_report">Research Report</option>
-                <option value="resource_report">Resource Report</option>
-                <option value="outline_report">Outline Report</option>
             </select>
         </div>
-        <input type="submit" value="Research" class="btn btn-primary button-padding">
+        <input type="submit" value="Ricerca" class="btn btn-primary button-padding">
     </form>
 
     <div class="margin-div">
-        <h2>Agent Output</h2>
-        <p class="mt-2 text-left" style="font-size: 0.8rem;">An agent tailored specifically to your task
-                        will be generated to provide the most precise and relevant research results.</p>
+        <h2>Uscita dell'agente</h2>
         <div id="output"></div>
     </div>
     <div class="margin-div">
-        <h2>Research Report</h2>
+        <h2>Rapporto di ricerca</h2>
         <div id="reportContainer"></div>
         <div id="reportActions">
             <div class="alert alert-info" role="alert" id="status"></div>
-            <a id="copyToClipboard" onclick="GPTResearcher.copyToClipboard()" class="btn btn-secondary mt-3" style="margin-right: 10px;">Copy to clipboard</a>
-            <a id="downloadLink" href="#" class="btn btn-secondary mt-3" target="_blank">Download as PDF</a>
+            <a id="copyToClipboard" onclick="GPTResearcher.copyToClipboard()" class="btn btn-secondary mt-3" style="margin-right: 10px;">Copia negli appunti</a>
+            <a id="downloadLink" href="#" class="btn btn-secondary mt-3" target="_blank">Scarica come PDF</a>
         </div>
     </div>
 </main>
 
 <footer>
-    <p>GPT Researcher &copy; 2023 | <a target="_blank" href="https://github.com/assafelovic/gpt-researcher">GitHub
-        Page</a></p>
+    <p>Ricercatore IA &copy; 2024</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
