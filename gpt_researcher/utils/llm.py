@@ -2,7 +2,7 @@
 from __future__ import annotations
 import json
 from fastapi import WebSocket
-from langchain.adapters import openai as lc_openai
+import litellm
 from colorama import Fore, Style
 from typing import Optional
 
@@ -55,12 +55,12 @@ async def send_chat_completion_request(
         messages, model, temperature, max_tokens, stream, llm_provider, websocket
 ):
     if not stream:
-        result = lc_openai.ChatCompletion.create(
+        result = litellm.completion(
             model=model,  # Change model here to use different models
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
-            provider=llm_provider,  # Change provider here to use a different API
+            #provider=llm_provider,  # Change provider here to use a different API
         )
         return result["choices"][0]["message"]["content"]
     else:
@@ -71,12 +71,12 @@ async def stream_response(model, messages, temperature, max_tokens, llm_provider
     paragraph = ""
     response = ""
 
-    for chunk in lc_openai.ChatCompletion.create(
+    for chunk in litellm.completion(
             model=model,
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
-            provider=llm_provider,
+            #provider=llm_provider,
             stream=True,
     ):
         content = chunk["choices"][0].get("delta", {}).get("content")
